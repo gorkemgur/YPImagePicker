@@ -27,10 +27,7 @@ internal struct YPPermissionManager {
         case .limited:
             completion(true)
         case .restricted, .denied:
-            let alert = YPPermissionDeniedPopup.buildGoToSettingsAlert(cancelBlock: {
-                completion(false)
-            })
-            sourceVC.present(alert, animated: true, completion: nil)
+            completion(false)
         case .notDetermined:
             // Show permission popup and get new status
             if #available(iOS 14, *) {
