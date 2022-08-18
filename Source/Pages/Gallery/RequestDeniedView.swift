@@ -34,8 +34,6 @@ class RequestDeniedView: BaseView {
         goToSettingsButton.tintColor = .blue
         goToSettingsButton.titleLabel?.font = UIFont.systemFont(ofSize: 15)
         
-        
-        
     }
     
     @IBAction func goToSettingsbuttonTapped() {

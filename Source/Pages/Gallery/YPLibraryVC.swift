@@ -97,7 +97,10 @@ internal final class YPLibraryVC: UIViewController, YPPermissionCheckable , Requ
     }
     
     func goToSettingsButtonTaped() {
-        print("settings")
+        let alert = YPPermissionDeniedPopup.buildGoToSettingsAlert(cancelBlock: {
+            completion(false)
+        })
+        self.present(alert, animated: true, completion: nil)
     }
 
     func setAlbum(_ album: YPAlbum) {

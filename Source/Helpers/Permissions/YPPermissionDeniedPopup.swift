@@ -10,9 +10,8 @@ import UIKit
 
 internal struct YPPermissionDeniedPopup {
     static func buildGoToSettingsAlert(cancelBlock: @escaping () -> Void) -> UIAlertController {
-        let alert = UIAlertController(title:
-                                        YPConfig.wordings.permissionPopup.title,
-                                      message: YPConfig.wordings.permissionPopup.message,
+        let alert = UIAlertController(title: ypLocalized("YPLibraryViewRequestDeniedDescription"),
+                                      message: ypLocalized("YPLibraryViewRequestDeniedButtonText"),
                                       preferredStyle: .alert)
         alert.addAction(
             UIAlertAction(title: YPConfig.wordings.permissionPopup.cancel,
