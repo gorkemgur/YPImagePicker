@@ -25,8 +25,8 @@ public class PanGestureHelper: NSObject, UIGestureRecognizerDelegate {
             return v.assetViewContainerConstraintTop?.constant ?? 0
         }
         set {
-            if newValue >= v.assetZoomableViewMinimalVisibleHeight - v.assetViewContainer.frame.height {
-                v.assetViewContainerConstraintTop?.constant = newValue
+            if newValue >= 0 - v.assetViewContainer.frame.height {
+                v.assetViewContainerConstraintTop?.constant = 0
             }
         }
     }
@@ -124,7 +124,7 @@ public class PanGestureHelper: NSObject, UIGestureRecognizerDelegate {
             case .up:
                 if currentPos.y < cropBottomY - dragDiff {
                     topHeight =
-                        max(v.assetZoomableViewMinimalVisibleHeight - containerHeight,
+                        max(0 - containerHeight,
                             currentPos.y + dragDiff - containerHeight)
                 }
             case .down:
@@ -134,7 +134,7 @@ public class PanGestureHelper: NSObject, UIGestureRecognizerDelegate {
                 }
             case .scroll:
                 topHeight =
-                    v.assetZoomableViewMinimalVisibleHeight - containerHeight
+                    0 - containerHeight
                     + currentPos.y - imaginaryCollectionViewOffsetStartPosY
             case .stop:
                 if v.collectionView.contentOffset.y < 0 {
@@ -152,7 +152,7 @@ public class PanGestureHelper: NSObject, UIGestureRecognizerDelegate {
             if overYLimitToStartMovingUp && isImageShown == false {
                 // The largest movement
                 topHeight =
-                    v.assetZoomableViewMinimalVisibleHeight - containerHeight
+                    0 - containerHeight
                 animateView()
                 dragDirection = .down
             } else {

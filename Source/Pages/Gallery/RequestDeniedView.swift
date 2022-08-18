@@ -25,7 +25,6 @@ class RequestDeniedView: BaseView {
         super.setup()
         setupFromNib()
         
-        emptyViewImage.image = UIImage(systemName: "photo.on.rectangle.angled")
         emptyViewImage.tintColor = .black
         emptyViewDescriptionLabel.textColor = .black
         emptyViewDescriptionLabel.font = UIFont.systemFont(ofSize: 15)
